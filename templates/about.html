@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+{% block navbar %}
+	<li><a href="{{url_for('home')}}">Home</a></li>
+	<li class="colorlib-active"><a href="{{url_for('about')}}">About</a></li>
+	<li><a href="{{url_for('prediction')}}">Prediction</a></li>
+	<li><a href="{{url_for('result')}}">Result</a></li>
+	<li><a href="{{url_for('index')}}">Logout</a></li>
+{% endblock %}
+
+{% block content %}
+	<div id="colorlib-main">
+		<div class="colorlib-about">
+			<div class="colorlib-narrow-content">
+				<div class="row row-bottom-padded-md">
+					<h2 class="colorlib-heading">About</h2>
+					<div class="col-md-6">
+						<div class="about-img animate-box" data-animate-effect="fadeInLeft" style="background-image: url(/static/images/about.jpg);">
+						</div>
+					</div>
+
+					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+						<div class="about-desc">
+							<p style="text-align: justify; color: black;">
+								Financial fraud poses significant threats to the integrity and security of financial systems worldwide. This project aims to develop a robust machine learning framework to detect fraudulent transactions effectively. Utilizing a publicly available dataset from Kaggle, we implement and compare the performance of various machine learning algorithms, including K-Means Clustering for unsupervised learning and Decision Tree, Logistic Regression, Random Forest, and Naïve Bayes for supervised learning.
+								The dataset is pre-processed through data cleaning, feature engineering, and normalization to ensure optimal model performance. K-Means Clustering is employed to identify underlying patterns and group similar transactions, providing a preliminary insight into the data. For classification, Decision Tree, Logistic Regression, Random Forest, and Naïve Bayes algorithms are trained and evaluated using metrics such as accuracy, precision, recall, and F1-score. Hyperparameter tuning is applied to enhance the models' predictive accuracy.
+								The results reveal the comparative strengths and weaknesses of each algorithm in detecting fraudulent activities. Our findings indicate that ensemble methods, particularly Random Forest, demonstrate superior performance in identifying fraud compared to individual classifiers. This project underscores the importance of integrating multiple machine learning techniques to enhance fraud detection systems. The proposed framework provides a valuable tool for financial institutions to mitigate fraud risks and safeguard their operations. Future work will focus on further improving model accuracy and exploring advanced techniques such as deep learning for fraud detection.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

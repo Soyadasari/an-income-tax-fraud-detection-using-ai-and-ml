@@ -1,0 +1,89 @@
+{% extends 'index.html' %}
+
+{% block navbar %}
+	<li><a href="{{url_for('home')}}">Home</a></li>
+	<li><a href="{{url_for('about')}}">About</a></li>
+	<li class="colorlib-active"><a href="{{url_for('prediction')}}">Prediction</a></li>
+	<li><a href="{{url_for('result')}}">Result</a></li>
+	<li><a href="{{url_for('index')}}">Logout</a></li>
+{% endblock %}
+
+{% block content %}
+	<div id="colorlib-main">
+		<div class="colorlib-contact">
+			<div class="colorlib-narrow-content">
+				<div class="row">
+					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+						<h2 class="colorlib-heading">Prediction Page</h2>
+					</div>
+				</div>
+
+                {% if prediction %}
+                    {% if prediction == 'Non Fraudulent Transaction' %}
+                        <h1 style="color: green;">Prediction : {{prediction}}</h1>
+                    {% else %}
+                        <h1 style="color: red;">Prediction : {{prediction}}</h1>
+                    {% endif %}
+                {% endif %}
+
+				<div class="row">
+					<div class="col-md-5">
+						<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+							<div class="colorlib-icon" style="padding-left:100px;">
+							</div>
+							<a href="#">
+								<div class="colorlib-feature colorlib-feature-sm animate-box fadeInLeft animated" data-animate-effect="fadeInLeft" >
+									<img border="0" alt="W3Schools" src="/static/images/prediction.jpg" width="500" height="500">
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-7 col-md-push-1">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
+								<form action="{{url_for('prediction')}}" method="post">
+
+                                    <div class="form-group">
+										<select name="type" class="form-control" required>
+                                            <option value="">Choose type</option>
+                                            <option value="1">CASH_OUT</option>
+                                            <option value="4">TRANSFER</option>
+                                            <option value="3">PAYMENT</option>
+                                            <option value="0">CASH_IN</option>
+                                            <option value="2">DEBIT</option>
+                                        </select>
+									</div>
+									
+									<div class="form-group">
+										<input type="number" name="amount" class="form-control" placeholder="Enter Amount" required>
+									</div>
+
+                                    <div class="form-group">
+										<input type="number" name="oldbalanceOrg" class="form-control" placeholder="Enter oldbalanceOrg" required>
+									</div>
+
+                                    <div class="form-group">
+										<input type="number" name="newbalanceOrig" class="form-control" placeholder="Enter newbalanceOrig" required>
+									</div>
+
+                                    <div class="form-group">
+										<input type="number" name="oldbalanceDest" class="form-control" placeholder="Enter oldbalanceDest" required>
+									</div>
+
+                                    <div class="form-group">
+										<input type="number" name="newbalanceDest" class="form-control" placeholder="Enter newbalanceDest" required>
+									</div>
+                                    
+									<div class="form-group">
+										<input type="submit" class="btn btn-primary btn-send-message" value="Submoit">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
